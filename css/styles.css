@@ -37,6 +37,11 @@ p {
   text-transform: none;
   color: var(--light-gray);
 }
+
+/* utility class requested by user */
+.light-grey {
+  color: var(--light-gray) !important;
+}
 .button {
   font-size: 24px;
   font-family: Inter;
@@ -137,6 +142,8 @@ header {
   text-align: center;
   width: 620px;
   margin: auto;
+  /* ensure this description color matches the requested light-gray */
+  color: var(--light-gray);
 }
 .row {
   display: grid;
@@ -170,4 +177,212 @@ header {
 }
 .text-right .number {
   margin-left: auto;
+}
+
+/* LINK SECTION */
+.link .container {
+  background: var(--green);
+  border-radius: 12px;
+  /* inner spacing: 40px vertical, 80px horizontal for symmetric left/right padding */
+  padding: 40px 80px;
+  display: flex;
+  align-items: center;
+  /* center inner content; child flex-basis values below leave some free space
+     so left/right padding appears equal visually */
+  justify-content: center;
+  gap: 15px; /* larger gap to create visible space between description and form */
+}
+.link .container .description {
+  color: var(--white);
+  /* give description a fixed basis (30%) so combined with form it leaves
+     horizontal breathing room that justify-content:center will distribute */
+  flex: 0 0 30%;
+  max-width: none;
+}
+.link .link-form {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  /* give form a fixed basis (50%) — total 80% used, remaining 20% becomes
+     equal space on both sides because the container is centered */
+  flex: 0 0 50%;
+  justify-content: flex-end; /* keep form aligned to the right inside its area */
+}
+.link .link-form input[type="text"] {
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  /* let the input grow to fill available space inside the form */
+  flex: 1 1 auto;
+  min-width: 0; /* prevent overflow in flex layouts */
+}
+.link .link-form button {
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--green);
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+@media (max-width: 768px) {
+  .link .container {
+    flex-direction: column;
+    align-items: flex-start;
+    /* reduce padding on small screens so the layout fits */
+    padding: 20px;
+  }
+  .link .container .description {
+    flex: 0 0 auto;
+    width: 100%;
+    margin-bottom: 16px; /* add explicit space between description and form on small screens */
+  }
+  .link .link-form {
+    width: 100%;
+    justify-content: flex-start;
+    flex: 0 0 auto;
+  }
+  .link .link-form input[type="text"] {
+    width: 100%;
+  }
+}
+
+/* User-provided GET LINK CSS */
+.get-link {
+  border-radius: 5px;
+  background: var(--Green, #75bf7a);
+  margin: 80px;
+  margin-top: 0;
+}
+.get-link-content {
+  display: inline-flex;
+  align-items: center;
+  width: 1278px;
+  height: 157px;
+}
+.get-link-text h2 {
+  color: #fff;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px; /* 137.5% */
+  text-transform: none;
+  text-align: left;
+  width: 241px;
+  height: 66px;
+  padding: 45px 70px;
+}
+.get-link-form {
+  display: flex; /* arrange children horizontally */
+  align-items: center; /* vertically center input and button */
+  gap: 11px;
+}
+.get-link-form input {
+  border-radius: 5px;
+  background: #fff;
+  width: 511px;
+  height: 67px;
+  border: 0;
+  padding-left: 35px;
+}
+.get-link-form input::placeholder {
+  color: #dadada;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0;
+}
+.get-link-form .btn-drive {
+  border-radius: 5px;
+  background: var(--Dark-gray, #272042);
+  display: flex;
+  width: 260px;
+  height: 66.773px;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0; /* 0% */
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.get-link-form .btn-drive:hover {
+  background: #5c5770;
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 75px;
+  padding-top: 55px;
+}
+.hero-text h1 {
+  color: var(--Black, #000);
+  font-family: Inter;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 65.91px;
+}
+.hero-text p {
+  color: var(--Light-Gray, #9e9da2);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 33px;
+  padding: 0;
+  width: 550px;
+  height: 120px;
+  flex-shrink: 0;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 70px;
+}
+
+.btn-google {
+  display: inline-flex; /* so icon + text align horizontally */
+  align-items: center; /* vertical center */
+  gap: 8px; /* space between icon and text */
+  padding: 12px 24px; /* adds size to the buttons */
+  border-radius: 5px;
+  background: var(--Dark-gray, #272042);
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px; /* adjust if needed */
+  font-weight: 700;
+  line-height: normal; /* fix collapsed text */
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.btn-google:hover {
+  background: #5c5770;
+}
+.btn-apple {
+  display: inline-flex; /* so icon + text align horizontally */
+  align-items: center; /* vertical center */
+  gap: 8px; /* space between icon and text */
+  padding: 12px 24px; /* adds size to the buttons */
+  border-radius: 5px;
+  background: var(--Dark-gray, #272042);
+  color: #fff;
+  font-family: Inter;
+  font-size: 18px; /* adjust if needed */
+  font-weight: 700;
+  line-height: normal; /* fix collapsed text */
+  text-decoration: none;
+  transition: all 0.5s;
+}
+.btn-apple:hover {
+  background: #5c5770;
 }
