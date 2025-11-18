@@ -8,6 +8,10 @@
   --dark-gray: rgba(39, 32, 66, 1);
   --background: rgba(249, 249, 249, 1);
 }
+/* page background (sections/gaps should show this) */
+body {
+  background: var(--background);
+}
 h1 {
   font-size: 64px;
   font-family: Inter;
@@ -90,6 +94,12 @@ h3 {
 /* HEADER */
 header {
   padding-top: 80px;
+  padding-bottom: 24px; /* a little more bottom padding */
+  background: var(--white); /* keep header white */
+}
+/* make all page sections use the background variable */
+section {
+  background: var(--background);
 }
 .container {
   width: 1280px;
@@ -150,6 +160,12 @@ header {
   grid-template-columns: repeat(3, 1fr);
   gap: 40px;
   margin-top: 60px;
+  align-items: center;
+}
+.row p {
+  color: var(--light-gray);
+  max-width: 73.34%;
+  margin: -1% 0;
 }
 .how-it-works .number {
   background-image: url("../img/step.png");
@@ -178,7 +194,10 @@ header {
 .text-right .number {
   margin-left: auto;
 }
-
+.text-right .step p {
+  text-align: right;
+  margin-left: auto;
+}
 /* LINK SECTION */
 .link .container {
   background: var(--green);
@@ -247,19 +266,22 @@ header {
     width: 100%;
   }
 }
-
-/* User-provided GET LINK CSS */
 .get-link {
   border-radius: 5px;
-  background: var(--Green, #75bf7a);
+  background: transparent; /* let section show page background */
   margin: 80px;
   margin-top: 0;
+  margin-bottom: 40px; /* reduce vertical gap to how-it-works slightly */
+  padding: 10px 0; /* small vertical padding so inner block breathes */
 }
-.get-link-content {
+.get-link .get-link-content {
   display: inline-flex;
   align-items: center;
-  width: 1278px;
-  height: 157px;
+  width: 100%;
+  height: 160px;
+  background: var(--Green, #75bf7a);
+  border-radius: 8px;
+  gap: 20px;
 }
 .get-link-text h2 {
   color: #fff;
@@ -346,7 +368,7 @@ header {
 }
 .buttons {
   display: flex;
-  gap: 10px;
+  gap: 30px;
   margin-top: 70px;
 }
 
@@ -354,7 +376,7 @@ header {
   display: inline-flex; /* so icon + text align horizontally */
   align-items: center; /* vertical center */
   gap: 8px; /* space between icon and text */
-  padding: 12px 24px; /* adds size to the buttons */
+  padding: 12px 44px; /* adds size to the buttons */
   border-radius: 5px;
   background: var(--Dark-gray, #272042);
   color: #fff;
@@ -372,7 +394,7 @@ header {
   display: inline-flex; /* so icon + text align horizontally */
   align-items: center; /* vertical center */
   gap: 8px; /* space between icon and text */
-  padding: 12px 24px; /* adds size to the buttons */
+  padding: 12px 44px; /* adds size to the buttons */
   border-radius: 5px;
   background: var(--Dark-gray, #272042);
   color: #fff;
@@ -385,4 +407,196 @@ header {
 }
 .btn-apple:hover {
   background: #5c5770;
+}
+
+/* BENEFITS SECTION */
+
+.benefits h2 span {
+  color: #75bf7a;
+}
+.benefits h1 {
+  text-align: center;
+}
+.benefits-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px;
+}
+.benefit-1-header span,
+.benefit-2-header span,
+.benefit-3-header span {
+  color: #75bf7a;
+  font-family: Inter;
+  font-size: 88px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 118.8px; /* 135% */
+}
+.benefit-1-header,
+.benefit-2-header,
+.benefit-3-header {
+  display: flex; /* puts number and title on the same line */
+  align-items: center; /* vertical alignment */
+  gap: 15px;
+}
+.benefit-1-header h3,
+.benefit-2-header h3,
+.benefit-3-header h3 {
+  color: #000;
+  font-family: Inter;
+  font-size: 33.943px;
+  font-style: normal;
+  width: 227px;
+  font-weight: 400;
+  line-height: 32.5px; /* 95.749% */
+  text-transform: none;
+}
+.benefit-1-description,
+.benefit-2-description,
+.benefit-3-description p {
+  color: var(--light-gray);
+  width: 393px;
+}
+.benefit-1 {
+  border-radius: 5px;
+  background: var(--white);
+  display: flex;
+  height: 302.82px;
+  width: 1060px;
+  padding: 24px 38px 24px 66px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-right: 215px;
+}
+.benefit-2 {
+  border-radius: 5px;
+  background: var(--white);
+  height: 302.82px;
+  width: 1060px;
+  display: flex;
+  padding: 24px 38px 24px 66px;
+  align-items: center;
+  gap: 62px;
+  justify-content: space-between;
+  margin-top: 67px;
+  flex-direction: row-reverse;
+  margin-left: 220px;
+}
+.benefit-3 {
+  border-radius: 5px;
+  background: var(--white);
+  display: flex;
+  height: 302.82px;
+  width: 1060px;
+  padding: 24px 38px 24px 66px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 67px;
+  margin-bottom: 135px;
+  margin-right: 215px;
+}
+.benefit-1-info,
+.benefit-2-info,
+.benefit-3-info {
+  gap: 27px;
+}
+.footer-container {
+  background: var(--white);
+  padding: 200px 0 80px 0;
+}
+/* FOOTER SECTION */
+footer {
+  background: var(--white);
+  width: 100%;
+  margin-top: 100px;
+} /* Wrapper to make stroke full width */
+.footer-stroke-wrapper {
+  width: 100%;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+} /* Main container inside the stroke */
+.footer-container {
+  max-width: 1280px;
+  margin: 0 auto; /* centers the footer block */
+  padding: 60px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} /* Left block: logo + friend-1 */
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+} /* Friend sections */
+.friend-1,
+.friend-2 {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.friend-1 .h3,
+.friend-2 .h3 {
+  color: var(--black);
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0;
+  text-transform: none;
+}
+.friend-1 .p,
+.friend-2 .p {
+  margin: 0;
+  color: var(--gray);
+  font-size: 16px;
+  font-weight: 500;
+} /* BUTTONS */
+.footer-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px; /* spacing between the buttons */
+}
+.footer-buttons a {
+  display: flex;
+  padding: 11px 22px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 5px;
+  background: var(--dark-gray);
+  color: var(--white);
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 700;
+  transition: 0.3s;
+}
+.footer-buttons a:hover {
+  background: #5c5770;
+}
+.footer-buttons a img {
+  width: 22px;
+  height: auto;
+} /* RIGHTS TEXT */
+.rights {
+  text-align: center;
+  padding: 20px 0;
+}
+.rights p {
+  color: var(--green);
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+/* New wrapper for friend sections */
+.friends-section {
+  display: flex;
+  flex-direction: row;
+  gap: 70px;
+}
+.footer-logo img {
+  flex: 1;
+  justify-items: center;
+  margin-right: 100px;
+  margin-left: 50px;
 }
